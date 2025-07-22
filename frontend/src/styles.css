@@ -1,0 +1,73 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+.sidenav-container {
+  height: 100vh;
+}
+
+.custom-sidenav {
+  background-color: #f8f9fa;
+  padding: 10px;
+  width: 150px; /* Adjust width as needed */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidenav-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.module-list, .component-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Optional visual separation */
+.module-list {
+  border-right: 1px solid #ccc;
+  padding-right: 10px;
+}
+
+.component-list {
+  padding-left: 10px;
+}
+
+/* Active link styling */
+.active-link {
+  background-color: #000000;
+  color: #0bdf2f;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+/* Main content styling */
+.main-content {
+  padding: 20px;
+  background-color: #ffffff;
+  height: 100%;
+  overflow: auto;
+}
+
+/* Responsive tweaks if needed */
+@media (max-width: 768px) {
+  .sidenav-container {
+    flex-direction: column;
+  }
+
+  .custom-sidenav {
+    width: 100%;
+  }
+
+  .sidenav-content {
+    flex-direction: column;
+  }
+
+  .module-list, .component-list {
+    border-right: none;
+    padding: 0;
+  }
+}

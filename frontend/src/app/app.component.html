@@ -1,0 +1,45 @@
+<ng-container *ngIf="!isAuthPage(); else authContent">
+<mat-sidenav-container class="sidenav-container" >
+  <mat-sidenav mode="side" opened class="sidenav custom-sidenav" style="overflow: hidden;">
+    <div class="row sidenav-content">
+      <!-- Left column: Modules -->
+      <div class="col-5 module-list">
+        <mat-nav-list>
+          <a mat-list-item routerLink="/components" routerLinkActive="active-link">
+            <span>HR</span>
+          </a>
+        </mat-nav-list>
+      </div>
+
+      <!-- Right column: Components under selected module -->
+      <div class="col-7 component-list">
+        <mat-nav-list>
+          <div *ngIf="currentModule === 'components'">
+            <a routerLink="/components/employee" routerLinkActive="active-link">👤 Employee</a>
+          </div>
+        </mat-nav-list>
+        <mat-nav-list>
+          <div *ngIf="currentModule === 'components'">
+            <a routerLink="/components/user" routerLinkActive="active-link">🔐 User</a>
+          </div>
+        </mat-nav-list>
+        <mat-divider></mat-divider>
+        <mat-nav-list>
+          <a mat-list-item *ngIf="isLoggedIn()" (click)="logout()">🚪 Logout</a>
+        </mat-nav-list>
+      </div>
+    </div>
+  </mat-sidenav>
+  <!-- Main Content -->
+  <mat-sidenav-content>
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+</ng-container>
+
+<!-- 🔐 Auth Pages (Login, Forgot, Reset) without sidenav -->
+<ng-template #authContent>
+  <router-outlet></router-outlet>
+</ng-template>

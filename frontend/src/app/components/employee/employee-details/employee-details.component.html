@@ -1,0 +1,21 @@
+<div class="employee-details-container d-flex justify-content-between align-items-start">
+  <!-- Left side: Employee details -->
+  <div class="employee-info">
+    <h3>{{ employee.fullname }} ({{ employee.phone }})</h3>
+    <p>Email: {{ employee.email }}</p>
+    <p>Title: {{ employee.saturation }}</p>
+
+    <h4>Skills:</h4>
+    <ul>
+      <li *ngFor="let skill of employee.skills">
+        {{ skill.technology }} - {{ skill.level }}
+      </li>
+    </ul>
+  </div>
+
+  <!-- Right side: Buttons -->
+  <div class="employee-actions">
+    <button mat-raised-button color="primary" (click)="openForm()">Edit</button>
+    <button mat-raised-button color="warn" >Delete</button>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<mat-card class="ps-2 mb-4">
+    <div class="d-flex justify-content-between align-items-center p-1">
+        <div><h4>Employee</h4></div>
+        <div>
+            <button type="button" class="btn btn-primary d-flex justify-content-between align-items-center" (click)="openForm()"><mat-icon>add</mat-icon>Add</button>
+        </div>
+    </div>
+</mat-card>
+
+<mat-card>
+  <div class="row px-0 mx-0 d-flex">
+    <div class="col-3 px-0" style="height: 84vh;">
+      <mat-card class="px-0 mx-0" style="height: 84vh;">
+        <mat-nav-list>
+          <mat-list-item *ngFor="let emp of employees" (click)="selectEmployee(emp)">
+            {{ getFullNameWithTitle(emp) }}
+          </mat-list-item>
+        </mat-nav-list>
+      </mat-card>
+    </div>
+    <div class="col-9" *ngIf="isShow ==1">
+      <app-employee-details [employee]="selectedEmployee" ></app-employee-details>
+    </div>
+  </div>
+</mat-card>
